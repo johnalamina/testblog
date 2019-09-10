@@ -13,17 +13,19 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id');
-            $table->text('title');
-            $table->text('status');
-            $table->text('body');
+            $table->bigInteger('user_id')->nullable(false)->unsigned()->index();
+            $table->text('title')->nullable(false);
+            $table->text('status')->nullable(false);
+            $table->text('body')->nullable(false);
             $table->dateTime('published_on');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -33,6 +35,8 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('posts', function (Blueprint $table) {
+            $table->dropForeign('posts_user_id_foreign');
+        });
     }
 }

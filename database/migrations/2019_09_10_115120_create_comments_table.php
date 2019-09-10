@@ -13,14 +13,16 @@ class CreateCommentsTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('comments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id')->nullable(false);
+            $table->bigInteger('user_id')->nullable(false)->unsigned()->index();
             $table->string('content')->nullable(false);
             $table->string('status')->nullable(false);
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -30,6 +32,8 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('comments', function (Blueprint $table) {
+            $table->dropForeign('comments_user_id_foreign');
+        });
     }
 }

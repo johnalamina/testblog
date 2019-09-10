@@ -13,14 +13,16 @@ class CreateTaggablesTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('taggables', function (Blueprint $table) {
-            $table->integer('tag_id')->nullable(false);
-            $table->integer('taggable_id')->nullable(false);
+            $table->bigInteger('tag_id')->nullable(false)->unsigned()->index();
+            $table->bigInteger('taggable_id')->nullable(false)->unsigned()->index();
             $table->string('taggable_type')->nullable(false);
             $table->timestamps();
 
             $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade')->onUpdate('cascade');
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -30,6 +32,8 @@ class CreateTaggablesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('taggables');
+        Schema::dropIfExists('taggables', function (Blueprint $table) {
+            $table->dropForeign('taggables_tag_id_foreign');
+        });
     }
 }
