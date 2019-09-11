@@ -1,0 +1,25 @@
+title: Post
+type: object
+description: "User's blog posts"
+properties:
+  id:
+    type: integer
+  title:
+    type: string
+  status:
+    type: string
+  create_time:
+    type: object
+  update_time:
+    type: object
+  author_id:
+    type:
+      - integer
+      - object
+required:
+  - id
+  - title
+  - status
+  - create_time
+  - update_time
+  - author_id

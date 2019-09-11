@@ -1,0 +1,11 @@
+title: Error
+type: object
+description: Server error object
+properties:
+  code:
+    type: integer
+  message:
+    type: string
+required:
+  - code
+  - message

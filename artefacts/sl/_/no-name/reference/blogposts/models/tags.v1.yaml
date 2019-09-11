@@ -1,0 +1,15 @@
+title: Tag
+type: object
+description: ''
+properties:
+  id:
+    type: integer
+  name:
+    type: string
+  frequency:
+    type: integer
+    default: 0
+required:
+  - id
+  - name
+  - frequency

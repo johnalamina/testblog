@@ -1,0 +1,31 @@
+title: Comment
+type: object
+description: Users comments
+properties:
+  id:
+    type: integer
+  content:
+    type: string
+  status:
+    type: string
+  create_time:
+    type: object
+  update_time:
+    type: object
+  author:
+    type:
+      - integer
+      - object
+  post_id:
+    type:
+      - integer
+      - object
+required:
+  - id
+  - content
+  - status
+  - create_time
+  - update_time
+  - author
+  - post_id
+x-examples: {}

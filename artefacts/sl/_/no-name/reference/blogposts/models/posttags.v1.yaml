@@ -1,0 +1,9 @@
+title: PostTags
+type: object
+description: Get post tags test
+properties:
+  id:
+    type: integer
+  '':
+    type: array
+    items: {}
