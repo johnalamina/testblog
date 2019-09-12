@@ -16,7 +16,7 @@ class Tag extends Model
     /**
      * Get all of the posts that are assigned this tag.
      */
-    public function users()
+    public function tagAuthors()
     {
         return $this->morphedByMany('App\User', 'taggable');
     }
