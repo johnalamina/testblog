@@ -1,24 +1,7 @@
-[30;43mPackage "hatchly/platform" listed for update is not installed. Ignoring.[39;49m
 [32mLoading composer repositories with package information[39m
 [32mUpdating dependencies (including require-dev)[39m
-Nothing to install or update
-[32mGenerating optimized autoload files[39m
-> Illuminate\Foundation\ComposerScripts::postAutoloadDump
-> @php artisan package:discover --ansi
-Discovered Package: [32mfacade/ignition[39m
-Discovered Package: [32mfideloper/proxy[39m
-Discovered Package: [32mlaravel/nova[39m
-Discovered Package: [32mlaravel/passport[39m
-Discovered Package: [32mlaravel/tinker[39m
-Discovered Package: [32mnesbot/carbon[39m
-Discovered Package: [32mnunomaduro/collision[39m
-[32mPackage manifest generated successfully.[39m
-> @php artisan nova:publish
-[32mPublishing complete.[39m
-[32mCopied Directory[39m [33m[/nova/public][39m [32mTo[39m [33m[/public/vendor/nova][39m
-[32mPublishing complete.[39m
-[32mCopied Directory[39m [33m[/nova/resources/lang][39m [32mTo[39m [33m[/resources/lang/vendor/nova][39m
-[32mPublishing complete.[39m
-[32mCopied Directory[39m [33m[/nova/resources/views/partials][39m [32mTo[39m [33m[/resources/views/vendor/nova/partials][39m
-[32mPublishing complete.[39m
-[32mCompiled views cleared![39m
+[37;41mYour requirements could not be resolved to an installable set of packages.[39;49m
+
+  Problem 1
+    - The requested package hatchly/platform ^2.9.1 exists as hatchly/platform[dev-INT-594] but these are rejected by your constraint.
+

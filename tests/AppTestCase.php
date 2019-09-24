@@ -1,24 +1,21 @@
 <?php
 
 namespace Tests;
+use App\User;
 
-use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 
-abstract class TestCase extends BaseTestCase
+ class AppTestCase extends TestCase
 {
-    use RefreshDatabase, CreatesApplication;
 
-    protected users;
+    protected $users;
 
-    public function setUp()
+    function __construct()
     {
-        this->super();
-        $this->users = factory(App\User::class, 3)->create();
-        $this->assertTrue(App\User::all()->count()>0);
+        parent::__construct();
+        $this->users = factory(User::class, 3)->create();
+        $this->assertTrue(User::all()->count()>0);
     }
-    public function tearDown() {
-        //$this->http = null;
-    }
+//    public function tearDown() {
+//        //$this->http = null;
+//    }
 }
