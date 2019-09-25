@@ -16,7 +16,7 @@ class CreatePostsTable extends Migration
         Schema::disableForeignKeyConstraints();
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id')->nullable(false)->unsigned()->index();
+            $table->unsignedInteger('user_id')->nullable();
             $table->text('title')->nullable(false);
             $table->text('status')->nullable(false);
             $table->text('body')->nullable(false);
